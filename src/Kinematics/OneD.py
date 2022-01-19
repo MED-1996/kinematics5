@@ -15,7 +15,7 @@ def argCount(local: dict) -> None:
 def eq1(vi: Optional[int | float] = None,
         vf: Optional[int | float] = None,
         a: Optional[int | float] = None,
-        t: Optional[int | float] = None) -> tuple[float,float,float,float] | bool:
+        t: Optional[int | float] = None) -> tuple | bool:
     
     argCount(locals())
     
@@ -55,7 +55,7 @@ def eq1(vi: Optional[int | float] = None,
 def eq2(d: Optional[int | float] = None,
         vi: Optional[int | float] = None,
         vf: Optional[int | float] = None,
-        t: Optional[int | float] = None) -> tuple[float,float,float,float] | bool:
+        t: Optional[int | float] = None) -> tuple | bool:
     
     argCount(locals())
     
@@ -89,9 +89,56 @@ def eq2(d: Optional[int | float] = None,
     return (float(round(d,5)), float(round(vi,5)), float(round(vf,5)), float(round(t,5)))
 
 
+# THIRD KINEMATIC EQUATION: d = (vi * t) + [(0.5) * a * (t ^ 2)]
+# If 3/4 arguments are given, returns a tuple of all 4 variables. If t is not know, it'll return 2 values of t.
+# If 4/4 arguments are given, returns true/false if the 4 variables are actually a solution.
+def eq3(d: Optional[int | float] = None,
+        vi: Optional[int | float] = None,
+        a: Optional[int | float] = None,
+        t: Optional[int | float] = None) -> tuple | bool:
+    
+    argCount(locals())
+    
+    if t and t < 0:
+        raise Exception(f'The time you entered is negative: [{t}]')
+    
 
-def eq3():
-    pass
+    if d is None:
+        d = (vi * t) + (0.5 * a * t * t)
+
+    elif vi is None:
+        vi = (d - (0.5 * a * t * t)) / t
+    
+    elif a is None:
+        a = (2 * (d - (vi * t))) / (t * t)
+    
+    elif t is None:  
+        rad = ((vi**2) + (2 * a * d))
+
+        if rad < 0:
+            raise ValueError(f'Time Will be a Complex Number.')
+
+        t1 = ((-1 * vi) + (rad ** 0.5)) / a
+        t2 = ((-1 * vi) - (rad ** 0.5)) / a
+
+        if t1 > t2:
+            t = [t2, t1]
+        else:
+            t = [t1, t2]
+        
+        return (float(round(d,5)), float(round(vi,5)), float(round(a,5)), [float(round(t[0],5)),float(round(t[1],5))])
+
+    else:
+        _d = (vi * t) + (0.5 * a * (t ** 2))
+
+        if abs(float(round(d,5)) - float(round(_d,5))) <= 0.2:
+            return True
+        
+        return False
+
+    return (float(round(d,5)), float(round(vi,5)), float(round(a,5)), float(round(t,5)))
+
+
 
 def eq4():
     pass
