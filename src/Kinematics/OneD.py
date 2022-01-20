@@ -1,6 +1,6 @@
 from typing import Optional
 
-def argCount(local: dict) -> None:
+def __argCount(local: dict) -> None:
     var_count = 0
     for key in local:
         if local[key] is not None:
@@ -17,7 +17,7 @@ def eq1(vi: Optional[int | float] = None,
         a: Optional[int | float] = None,
         t: Optional[int | float] = None) -> tuple | bool:
     
-    argCount(locals())
+    __argCount(locals())
     
     if t and t < 0:
         raise Exception(f'The time you entered is negative: [{t}]')
@@ -58,7 +58,7 @@ def eq2(d: Optional[int | float] = None,
         vf: Optional[int | float] = None,
         t: Optional[int | float] = None) -> tuple | bool:
     
-    argCount(locals())
+    __argCount(locals())
     
     if t and t < 0:
         raise Exception(f'The time you entered is negative: [{t}]')
@@ -99,7 +99,7 @@ def eq3(d: Optional[int | float] = None,
         a: Optional[int | float] = None,
         t: Optional[int | float] = None) -> tuple | bool:
     
-    argCount(locals())
+    __argCount(locals())
     
     if t and t < 0:
         raise Exception(f'The time you entered is negative: [{t}]')
@@ -150,7 +150,7 @@ def eq4(d: Optional[int | float] = None,
         vf: Optional[int | float] = None,
         a: Optional[int | float] = None) -> tuple | bool:
     
-    argCount(locals())
+    __argCount(locals())
 
     if d is None:
         d = ((vf ** 2) - (vi ** 2)) / float(2 * a)
