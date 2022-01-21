@@ -4,9 +4,9 @@
 
 ## Installation
 
-'''
+```
 pip3 install kinematics5
-'''
+```
 
 ## Inspiration
 
@@ -16,4 +16,4 @@ As a high school AP physics tutor, I wanted to make a python package for solving
 
 ## License
 
-Distributed under the terms of the MIT license, '''kinematics5''' is free and open source software.
+Distributed under the terms of the MIT license, ```kinematics5``` is free and open source software.
