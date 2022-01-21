@@ -1,3 +1,5 @@
 .DS_Store
 __pycache__/
+/dist
+kinematics5.egg-info/
 *.pyc
