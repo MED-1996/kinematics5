@@ -5,7 +5,7 @@
 ## Installation
 
 ```
-pip3 install kinematics5
+pip install kinematics5
 ```
 
 ## Inspiration
