@@ -28,7 +28,7 @@ def eq1(vi: Optional[int | float] = None,
 
 *Kinematic Equation:*
 
-![equation1_image](http://www.sciweavers.org/tex2img.php?eq=%20v_%7Bf%7D%20%20%3D%20%20v_%7Bi%7D%20%20%2B%20at&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0)
+![equation1_image](http://www.sciweavers.org/tex2img.php?eq=%20v_%7Bf%7D%20%20%3D%20%20v_%7Bi%7D%20%20%2B%20at&bc=White&fc=Black&im=jpg&fs=18&ff=arev&edit=0)
 
 *Overview:*
 The function needs at least 3 arguments but can take 4. If 't' is less than 0, an error will be raised. If less than 3 arguments are given, an error will be raised. If 3 arguments are given, the function will return a tuple of all 4 arguments (the arg. that wasn't given is computed and returned in the tuple). If 4 arguments are given the function will return a bool letting the caller know if the 4 values they entered satisfy the equation (1% error tolerance).
@@ -45,6 +45,7 @@ def eq2(d: Optional[int | float] = None,
 
 *Kinematic Equation:*
 
+![equation2_image](http://www.sciweavers.org/tex2img.php?eq=d%20%3D%20%20%5Cfrac%7B%28v_%7Bf%7D%2B%20v_%7Bi%7D%29%7D%7B2%7Dt&bc=White&fc=Black&im=jpg&fs=18&ff=arev&edit=0)
 
 *Overview:*
 The function needs at least 3 arguments but can take 4. If 't' is less than 0, an error will be raised. If less than 3 arguments are given, an error will be raised. If 3 arguments are given, the function will return a tuple of all 4 arguments (the arg. that wasn't given is computed and returned in the tuple). If 4 arguments are given the function will return a bool letting the caller know if the 4 values they entered satisfy the equation (1% error tolerance).
@@ -61,6 +62,7 @@ def eq3(d: Optional[int | float] = None,
 
 *Kinematic Equation:*
 
+![equation3_image](http://www.sciweavers.org/tex2img.php?eq=d%20%3D%20%20v_%7Bi%7Dt%20%2B%20%20%5Cfrac%7B1%7D%7B2%7Da%20t%5E%7B2%7D%20%20&bc=White&fc=Black&im=jpg&fs=18&ff=arev&edit=0)
 
 *Overview:*
 The function needs at least 3 arguments but can take 4. If 't' is less than 0, an error will be raised. If less than 3 arguments are given, an error will be raised. If 3 arguments are given, the function will return a tuple of all 4 arguments (the arg. that wasn't given is computed and returned in the tuple). If 't' was the missing variable, t will be returned as a list with 2 elements. If 4 arguments are given the function will return a bool letting the caller know if the 4 values they entered satisfy the equation (1% error tolerance).
@@ -77,6 +79,7 @@ def eq4(d: Optional[int | float] = None,
 
 *Kinematic Equation:*
 
+![equation4_image](http://www.sciweavers.org/tex2img.php?eq=%20%20v_%7Bf%7D%20%5E%7B2%7D%20%3D%20%20v_%7Bi%7D%20%5E%7B2%7D%20%2B%202ad&bc=White&fc=Black&im=jpg&fs=18&ff=arev&edit=0)
 
 *Overview:*
 The function needs at least 3 arguments but can take 4. If less than 3 arguments are given, an error will be raised. If 3 arguments are given, the function will return a tuple of all 4 arguments (the arg. that wasn't given is computed and returned in the tuple). If 'vi' or 'vf' was the missing variable, they will be returned as a list with 2 elements. If 4 arguments are given the function will return a bool letting the caller know if the 4 values they entered satisfy the equation (1% error tolerance).
