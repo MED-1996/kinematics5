@@ -26,12 +26,11 @@ def eq1(vi: Optional[int | float] = None,
         t: Optional[int | float] = None) -> tuple | bool:
 ```
 
-The first kinematic equation. Below is the equation:
+*Kinematic Equation:*
 
-vf = vi + at
 
 *Overview:*
-The function needs at least 3 arguments but can take 4. If less than 3 arguments are given, the function will raise an error. If 3 arguments are given, the function will return a tuple of all 4 arguments (the arg. that wasn't given is computed and returned in the tuple). If 4 arguments are given the function will return a bool ```True/False``` letting the caller know if the 4 values they entered satisfy the equation (1% error).
+The function needs at least 3 arguments but can take 4. If 't' is less than 0, an error will be raised. If less than 3 arguments are given, an error will be raised. If 3 arguments are given, the function will return a tuple of all 4 arguments (the arg. that wasn't given is computed and returned in the tuple). If 4 arguments are given the function will return a bool letting the caller know if the 4 values they entered satisfy the equation (1% error tolerance).
 
 ### eq2
 
@@ -43,14 +42,11 @@ def eq2(d: Optional[int | float] = None,
         t: Optional[int | float] = None) -> tuple | bool:
 ```
 
-The second kinematic equation. Below is the equation:
+*Kinematic Equation:*
 
-d = (vf + vi) * t/2
-
-The function accepts integers or floats.
 
 *Overview:*
-The function needs at least 3 arguments but can take 4. If less than 3 arguments are given, the function will raise an error. If 3 arguments are given, the function will return a tuple of all 4 arguments (the arg. that wasn't given is computed and returned in the tuple). If 4 arguments are given the function will return a bool ```True/False``` letting the caller know if the 4 values they entered satisfy the equation (1% error).
+The function needs at least 3 arguments but can take 4. If 't' is less than 0, an error will be raised. If less than 3 arguments are given, an error will be raised. If 3 arguments are given, the function will return a tuple of all 4 arguments (the arg. that wasn't given is computed and returned in the tuple). If 4 arguments are given the function will return a bool letting the caller know if the 4 values they entered satisfy the equation (1% error tolerance).
 
 ### eq3
 
@@ -62,7 +58,11 @@ def eq3(d: Optional[int | float] = None,
         t: Optional[int | float] = None) -> tuple | bool:
 ```
 
-The third kinematic equation. Below is the equation:
+*Kinematic Equation:*
+
+
+*Overview:*
+The function needs at least 3 arguments but can take 4. If 't' is less than 0, an error will be raised. If less than 3 arguments are given, an error will be raised. If 3 arguments are given, the function will return a tuple of all 4 arguments (the arg. that wasn't given is computed and returned in the tuple). If 't' was the missing variable, t will be returned as a list with 2 elements. If 4 arguments are given the function will return a bool letting the caller know if the 4 values they entered satisfy the equation (1% error tolerance).
 
 ### eq4
 
@@ -74,12 +74,16 @@ def eq4(d: Optional[int | float] = None,
         a: Optional[int | float] = None) -> tuple | bool:
 ```
 
-The fourth kinematic equation. Below is the equation:
+*Kinematic Equation:*
+
+
+*Overview:*
+The function needs at least 3 arguments but can take 4. If less than 3 arguments are given, an error will be raised. If 3 arguments are given, the function will return a tuple of all 4 arguments (the arg. that wasn't given is computed and returned in the tuple). If 'vi' or 'vf' was the missing variable, they will be returned as a list with 2 elements. If 4 arguments are given the function will return a bool letting the caller know if the 4 values they entered satisfy the equation (1% error tolerance).
 
 
 ## PyPI Link
 
-This is the link to the package on PyPI [PyPI - kinematics5](https://pypi.org/project/kinematics5/).
+This is the link to the package [PyPI - kinematics5](https://pypi.org/project/kinematics5/).
 
 ## Lastest Version
 
