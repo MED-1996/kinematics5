@@ -91,7 +91,7 @@ Link to the package [PyPI - kinematics5](https://pypi.org/project/kinematics5/).
 
 ## Lastest Version
 
-0.0.3
+0.0.4
 
 ## License
 
