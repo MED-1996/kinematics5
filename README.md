@@ -87,7 +87,7 @@ The function needs at least 3 arguments but can take 4. If less than 3 arguments
 
 ## PyPI Link
 
-This is the link to the package [PyPI - kinematics5](https://pypi.org/project/kinematics5/).
+Link to the package [PyPI - kinematics5](https://pypi.org/project/kinematics5/).
 
 ## Lastest Version
 
