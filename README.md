@@ -45,7 +45,7 @@ def eq2(d: Optional[int | float] = None,
 
 *Kinematic Equation:*
 
-
+d = (v<sub>f</sub> + v<sub>i</sub>)t / 2
 
 *Overview:*
 The function needs at least 3 arguments but can take 4. If 't' is less than 0, an error will be raised. If less than 3 arguments are given, an error will be raised. If 3 arguments are given, the function will return a tuple of all 4 arguments (the arg. that wasn't given is computed and returned in the tuple). If 4 arguments are given the function will return a bool letting the caller know if the 4 values they entered satisfy the equation (1% error tolerance).
@@ -62,7 +62,7 @@ def eq3(d: Optional[int | float] = None,
 
 *Kinematic Equation:*
 
-d = v<sub>i</sub> + (0.5)at<sup>2</sup>
+d = v<sub>i</sub>t + (0.5)at<sup>2</sup>
 
 *Overview:*
 The function needs at least 3 arguments but can take 4. If 't' is less than 0, an error will be raised. If less than 3 arguments are given, an error will be raised. If 3 arguments are given, the function will return a tuple of all 4 arguments (the arg. that wasn't given is computed and returned in the tuple). If 't' was the missing variable, t will be returned as a list with 2 elements. If 4 arguments are given the function will return a bool letting the caller know if the 4 values they entered satisfy the equation (1% error tolerance).
