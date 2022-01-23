@@ -28,7 +28,7 @@ def eq1(vi: Optional[int | float] = None,
 
 *Kinematic Equation:*
 
-h<sub>&theta;</sub>(x) = &theta;<sub>o</sub> x + &theta;<sub>1</sub>x
+v<sub>f</sub> = v<sub>i</sub> + at
 
 *Overview:*
 The function needs at least 3 arguments but can take 4. If 't' is less than 0, an error will be raised. If less than 3 arguments are given, an error will be raised. If 3 arguments are given, the function will return a tuple of all 4 arguments (the arg. that wasn't given is computed and returned in the tuple). If 4 arguments are given the function will return a bool letting the caller know if the 4 values they entered satisfy the equation (1% error tolerance).
