@@ -20,10 +20,10 @@ As a high school AP physics tutor, I wanted to make a python package for solving
 
 *Function Signature*
 ```
-def eq1(vi: Optional[int | float] = None,
-        vf: Optional[int | float] = None,
-        a: Optional[int | float] = None,
-        t: Optional[int | float] = None) -> tuple | bool:
+def eq1(initial_velocity: Optional[int | float] = None,
+        final_velocity: Optional[int | float] = None,
+        acceleration: Optional[int | float] = None,
+        time: Optional[int | float] = None) -> tuple | bool:
 ```
 
 *Kinematic Equation:*
@@ -37,10 +37,10 @@ The function needs at least 3 arguments but can take 4. If 't' is less than 0, a
 
 *Function Signature*
 ```
-def eq2(d: Optional[int | float] = None,
-        vi: Optional[int | float] = None,
-        vf: Optional[int | float] = None,
-        t: Optional[int | float] = None) -> tuple | bool:
+def eq2(displacement: Optional[int | float] = None,
+        initial_velocity: Optional[int | float] = None,
+        final_velocity: Optional[int | float] = None,
+        time: Optional[int | float] = None) -> tuple | bool:
 ```
 
 *Kinematic Equation:*
@@ -54,10 +54,10 @@ The function needs at least 3 arguments but can take 4. If 't' is less than 0, a
 
 *Function Signature*
 ```
-def eq3(d: Optional[int | float] = None,
-        vi: Optional[int | float] = None,
-        a: Optional[int | float] = None,
-        t: Optional[int | float] = None) -> tuple | bool:
+def eq3(displacement: Optional[int | float] = None,
+        initial_velocity: Optional[int | float] = None,
+        acceleration: Optional[int | float] = None,
+        time: Optional[int | float] = None) -> tuple | bool:
 ```
 
 *Kinematic Equation:*
@@ -71,10 +71,10 @@ The function needs at least 3 arguments but can take 4. If 't' is less than 0, a
 
 *Function Signature*
 ```
-def eq4(d: Optional[int | float] = None,
-        vi: Optional[int | float] = None,
-        vf: Optional[int | float] = None,
-        a: Optional[int | float] = None) -> tuple | bool:
+def eq4(displacement: Optional[int | float] = None,
+        initial_velocity: Optional[int | float] = None,
+        final_velocity: Optional[int | float] = None,
+        acceleration: Optional[int | float] = None) -> tuple | bool:
 ```
 
 *Kinematic Equation:*
@@ -91,7 +91,7 @@ Link to the package [PyPI - kinematics5](https://pypi.org/project/kinematics5/).
 
 ## Lastest Version
 
-0.0.4
+0.0.5
 
 ## License
 

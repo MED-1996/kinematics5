@@ -1,202 +1,219 @@
 from typing import Optional
 
-def __argCount(local: dict) -> None:
+def __arg_count(local: dict) -> None:
     var_count = 0
     for key in local:
         if local[key] is not None:
             var_count += 1
-    
+
     if var_count < 3:
         raise Exception(f'Need at least 3 args: [{var_count}]')
 
-# FIRST KINEMATIC EQUATION: vf = vi + at
-# If 3/4 arguments are given, returns a tuple of all 4 variables.
-# If 4/4 arguments are given, returns true/false if the 4 variables are actually a solution.
-def eq1(vi: Optional[int | float] = None,
-        vf: Optional[int | float] = None,
-        a: Optional[int | float] = None,
-        t: Optional[int | float] = None) -> tuple | bool:
-    
-    __argCount(locals())
-    
-    if t and t < 0:
-        raise Exception(f'The time you entered is negative: [{t}]')
+
+# FIRST KINEMATIC EQUATION:
+# final_velocity = initial_velocity + (acceleration * time)
+def eq1(initial_velocity: Optional[int | float] = None,
+        final_velocity: Optional[int | float] = None,
+        acceleration: Optional[int | float] = None,
+        time: Optional[int | float] = None) -> tuple | bool:
+
+    __arg_count(locals())
+
+    if time and time < 0:
+        raise Exception(f'The time you entered is negative: [{time}]')
 
 
-    if vi is None:
-        vi = vf - (a * t)
-    
-    elif vf is None:
-        vf = vi + (a * t)
-    
-    elif a is None:
-        a = (vf - vi) / float(t)
-    
-    elif t is None:  
-        t = (vf - vi) / float(a)
-        
-        if t < 0:
-            raise Exception(f'Time is Negative: [{t}]')
+    if initial_velocity is None:
+        initial_velocity = final_velocity - (acceleration * time)
+
+    elif final_velocity is None:
+        final_velocity = initial_velocity + (acceleration * time)
+
+    elif acceleration is None:
+        acceleration = (final_velocity - initial_velocity) / float(time)
+
+    elif time is None:
+        time = (final_velocity - initial_velocity) / float(acceleration)
+
+        if time < 0:
+            raise Exception(f'Time is Negative: [{time}]')
 
     else:
-        _vf = vi + (a * t)
+        _vf = initial_velocity + (acceleration * time)
         err = _vf * 0.01
 
-        if abs(vf - _vf) <= err:
+        if abs(final_velocity - _vf) <= err:
             return True
-        
+
         return False
-  
-    return (float(vi), float(vf), float(a), float(t))
+
+    return (float(initial_velocity), float(final_velocity), float(acceleration), float(time))
 
 
-# SECOND KINEMATIC EQUATION: d = [(vf + vi) / 2] * t
-# If 3/4 arguments are given, returns a tuple of all 4 variables.
-# If 4/4 arguments are given, returns true/false if the 4 variables are actually a solution.
-def eq2(d: Optional[int | float] = None,
-        vi: Optional[int | float] = None,
-        vf: Optional[int | float] = None,
-        t: Optional[int | float] = None) -> tuple | bool:
-    
-    __argCount(locals())
-    
-    if t and t < 0:
-        raise Exception(f'The time you entered is negative: [{t}]')
-    
+# SECOND KINEMATIC EQUATION:
+# displacement = [(final_velocity + initial_velocity) / 2] * time
+def eq2(displacement: Optional[int | float] = None,
+        initial_velocity: Optional[int | float] = None,
+        final_velocity: Optional[int | float] = None,
+        time: Optional[int | float] = None) -> tuple | bool:
 
-    if d is None:
-        d = ((vf + vi) / 2) * t
-    
-    elif vi is None:
-        vi = ((2 * d) / float(t)) - vf
-    
-    elif vf is None:
-        vf = ((2 * d) / float(t)) - vi
-    
-    elif t is None:  
-        t = (2 * d) / float(vf + vi)
-        
-        if t < 0:
-            raise Exception(f'Time is Negative: [{t}]')
+    __arg_count(locals())
+
+    if time and time < 0:
+        raise Exception(f'The time you entered is negative: [{time}]')
+
+
+    if displacement is None:
+        displacement = ((final_velocity + initial_velocity) / 2) * time
+
+    elif initial_velocity is None:
+        initial_velocity = ((2 * displacement) / float(time)) - final_velocity
+
+    elif final_velocity is None:
+        final_velocity = ((2 * displacement) / float(time)) - initial_velocity
+
+    elif time is None:
+        time = (2 * displacement) / float(final_velocity + initial_velocity)
+
+        if time < 0:
+            raise Exception(f'Time is Negative: [{time}]')
 
     else:
-        _d = ((vf + vi) / 2) * t
-        err = _d * 0.01
+        _displacement = ((final_velocity + initial_velocity) / 2) * time
+        err = _displacement * 0.01
 
-        if abs(d - _d) <= err:
+        if abs(displacement - _displacement) <= err:
             return True
-        
+
         return False
-    
-    return (float(d), float(vi), float(vf), float(t))
+
+    return (float(displacement), float(initial_velocity), float(final_velocity), float(time))
 
 
-# THIRD KINEMATIC EQUATION: d = (vi * t) + [(0.5) * a * (t ^ 2)]
-# If 3/4 arguments are given, returns a tuple of all 4 variables. If t is not know, it'll return 2 values of t.
-# If 4/4 arguments are given, returns true/false if the 4 variables are actually a solution.
-def eq3(d: Optional[int | float] = None,
-        vi: Optional[int | float] = None,
-        a: Optional[int | float] = None,
-        t: Optional[int | float] = None) -> tuple | bool:
-    
-    __argCount(locals())
-    
-    if t and t < 0:
-        raise Exception(f'The time you entered is negative: [{t}]')
-    
+# THIRD KINEMATIC EQUATION:
+# displacement = (initial_velocity * time) + [(0.5) * acceleration * (time ^ 2)]
+def eq3(displacement: Optional[int | float] = None,
+        initial_velocity: Optional[int | float] = None,
+        acceleration: Optional[int | float] = None,
+        time: Optional[int | float] = None) -> tuple | bool:
 
-    if d is None:
-        d = (vi * t) + (0.5 * a * t * t)
+    __arg_count(locals())
 
-    elif vi is None:
-        vi = (d - (0.5 * a * t * t)) / float(t)
-    
-    elif a is None:
-        a = (2 * (d - (vi * t))) / float(t * t)
-    
-    elif t is None:  
-        rad = ((vi**2) + (2 * a * d))
+    if time and time < 0:
+        raise Exception(f'The time you entered is negative: [{time}]')
+
+
+    if displacement is None:
+        displacement = (initial_velocity * time) + (0.5 * acceleration * time * time)
+
+    elif initial_velocity is None:
+        initial_velocity = (displacement - (0.5 * acceleration * time * time)) / float(time)
+
+    elif acceleration is None:
+        acceleration = (2 * (displacement - (initial_velocity * time))) / float(time * time)
+
+    elif time is None:
+        rad = ((initial_velocity**2) + (2 * acceleration * displacement))
 
         if rad < 0:
-            raise ValueError(f'Time Will be a Complex Number.')
+            raise ValueError('Time Will be a Complex Number.')
 
-        t1 = ((-1 * vi) + (rad ** 0.5)) / float(a)
-        t2 = ((-1 * vi) - (rad ** 0.5)) / float(a)
+        time_1 = ((-1 * initial_velocity) + (rad ** 0.5)) / float(acceleration)
+        time_2 = ((-1 * initial_velocity) - (rad ** 0.5)) / float(acceleration)
 
-        if t1 > t2:
-            t = [t2, t1]
+        if time_1 > time_2:
+            time = [time_2, time_1]
         else:
-            t = [t1, t2]
-        
-        return (float(d), float(vi), float(a), [float(t[0]),float(t[1])])
+            time = [time_1, time_2]
+
+        return (
+                float(displacement),
+                float(initial_velocity),
+                float(acceleration),
+                [float(time[0]),float(time[1])]
+                )
 
     else:
-        _d = (vi * t) + (0.5 * a * (t ** 2))
-        err = _d * 0.01
+        _displacement = (initial_velocity * time) + (0.5 * acceleration * (time ** 2))
+        err = _displacement * 0.01
 
-        if abs(d - _d) <= err:
+        if abs(displacement - _displacement) <= err:
             return True
-        
+
         return False
 
-    return (float(d), float(vi), float(a), float(t))
+    return (float(displacement), float(initial_velocity), float(acceleration), float(time))
 
 
-# FOURTH KINEMATIC EQUATION: [vf ^ 2] = [vi ^ 2] + [2 * a * d]
-# If 3/4 arguments are given, returns a tuple of all 4 variables. If vi or vf are not know, it'll return 2 values of vi or vf.
-# If 4/4 arguments are given, returns true/false if the 4 variables are actually a solution.
-def eq4(d: Optional[int | float] = None,
-        vi: Optional[int | float] = None,
-        vf: Optional[int | float] = None,
-        a: Optional[int | float] = None) -> tuple | bool:
-    
-    __argCount(locals())
+# FOURTH KINEMATIC EQUATION:
+# [final_velocity ^ 2] = [initial_velocity ^ 2] + [2 * acceleration * displacement]
+def eq4(displacement: Optional[int | float] = None,
+        initial_velocity: Optional[int | float] = None,
+        final_velocity: Optional[int | float] = None,
+        acceleration: Optional[int | float] = None) -> tuple | bool:
 
-    if d is None:
-        d = ((vf ** 2) - (vi ** 2)) / float(2 * a)
+    __arg_count(locals())
 
-    elif vi is None:
-        rad = (vf ** 2) - (2 * a * d)
+    if displacement is None:
+        displacement = ((final_velocity ** 2) - (initial_velocity ** 2)) / float(2 * acceleration)
 
-        if rad < 0:
-            raise ValueError(f'Initial Velocity Will be a Complex Number.')
-
-        vi1 = rad ** 0.5
-        vi2 = -1 * (rad ** 0.5)
-
-        if vi1 > vi2:
-            vi = [vi2, vi1]
-        else:
-            vi = [vi1, vi2]
-        
-        return (float(d), [float(vi[0]),float(vi[1])], float(vf), float(a))
-
-    elif vf is None:
-        rad = (vi ** 2) + (2 * a * d)
+    elif initial_velocity is None:
+        rad = (final_velocity ** 2) - (2 * acceleration * displacement)
 
         if rad < 0:
-            raise ValueError(f'Final Velocity Will be a Complex Number.')
+            raise ValueError('Initial Velocity Will be a Complex Number.')
 
-        vf1 = rad ** 0.5
-        vf2 = -1 * (rad ** 0.5)
+        initial_velocity_1 = rad ** 0.5
+        initial_velocity_2 = -1 * (rad ** 0.5)
 
-        if vf1 > vf2:
-            vf = [vf2, vf1]
+        if initial_velocity_1 > initial_velocity_2:
+            initial_velocity = [initial_velocity_2, initial_velocity_1]
         else:
-            vf = [vf1, vf2]
-        
-        return (float(d), float(vi), [float(vf[0]),float(vf[1])], float(a))
-    
-    elif a is None:
-        a = ((vf ** 2) - (vi ** 2)) / float(2 * d)
-    
+            initial_velocity = [initial_velocity_1, initial_velocity_2]
+
+        return (
+                float(displacement),
+                [float(initial_velocity[0]),float(initial_velocity[1])],
+                float(final_velocity),
+                float(acceleration)
+                )
+
+    elif final_velocity is None:
+        rad = (initial_velocity ** 2) + (2 * acceleration * displacement)
+
+        if rad < 0:
+            raise ValueError('Final Velocity Will be a Complex Number.')
+
+        final_velocity_1 = rad ** 0.5
+        final_velocity_2 = -1 * (rad ** 0.5)
+
+        if final_velocity_1 > final_velocity_2:
+            final_velocity = [final_velocity_2, final_velocity_1]
+        else:
+            final_velocity = [final_velocity_1, final_velocity_2]
+
+        return (
+                float(displacement),
+                float(initial_velocity),
+                [float(final_velocity[0]), float(final_velocity[1])],
+                float(acceleration)
+                )
+
+    elif acceleration is None:
+        acceleration = ((final_velocity ** 2) - (initial_velocity ** 2)) / float(2 * displacement)
+
     else:
-        _d = ((vf ** 2) - (vi ** 2)) / float(2 * a)
-        err = _d * 0.01
-        
-        if abs(d - _d) <= err:
+        _displacement = ((final_velocity ** 2) - (initial_velocity ** 2)) / float(2 * acceleration)
+        err = _displacement * 0.01
+
+        if abs(displacement - _displacement) <= err:
             return True
-        
+
         return False
-    
-    return (float(d), float(vi), float(vf), float(a))
+
+    return (
+            float(displacement),
+            float(initial_velocity),
+            float(final_velocity),
+            float(acceleration)
+            )
